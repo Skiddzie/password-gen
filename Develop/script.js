@@ -5,7 +5,9 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+
   var password = "";
+
   const specialChar = "!@#$%^&*()_+~`,./<>?;:[]{}";
   specialCharList = specialChar.split('');
   const lowerChar = "qwertyuiopasdfghjklzxcvbnm";
@@ -15,6 +17,7 @@ function generatePassword() {
   const numChar = "1234567890";
   numCharList = numChar.split('');
   var allChar = []
+
   var userLength = prompt("how long do you want your password? enter a number between 8 and 128");
   if (userLength < 8){
     alert("please enter a number greater than 8");
@@ -41,12 +44,13 @@ function generatePassword() {
   if (lowerConfirm) {
     allChar = allChar.concat(lowerCharList);
   }
-  console.log(allChar);
+  if (specialConfirm == false && numberConfirm == false && capitalConfirm == false && lowerConfirm == false){
+    alert("You must select at least one character type");
+    generatePassword();
+  }
   for (let i = 0; i < userLength; i++) {
     const ranChar = allChar[Math.floor(Math.random() * allChar.length)];
-    console.log(ranChar);
     password = password.concat(ranChar);
-    console.log(password);
   } 
   return password;
 }
