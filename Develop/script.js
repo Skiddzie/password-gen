@@ -5,6 +5,7 @@
 var generateBtn = document.querySelector("#generate");
 
 function generatePassword() {
+  var password = "";
   const specialChar = "!@#$%^&*()_+~`,./<>?;:[]{}";
   specialCharList = specialChar.split('');
   const lowerChar = "qwertyuiopasdfghjklzxcvbnm";
@@ -44,8 +45,10 @@ function generatePassword() {
   for (let i = 0; i < userLength; i++) {
     const ranChar = allChar[Math.floor(Math.random() * allChar.length)];
     console.log(ranChar);
+    password = password.concat(ranChar);
+    console.log(password);
   } 
-  return "asdf";
+  return password;
 }
 }
 
